@@ -1,0 +1,258 @@
+programa
+{
+	inclua biblioteca Texto
+	inclua biblioteca Tipos
+	inclua biblioteca Util
+	inteiro numero_letra = 0
+	inteiro alfabeto[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25}
+	inteiro chave1 = 0
+	inteiro chave2 = 0
+	cadeia original = " "
+	caracter letra = ' '
+	inteiro cripto = 0
+	cadeia chavel
+	funcao inicio()
+	{
+		decisao()
+	}
+	funcao decisao()
+	{
+		caracter opcao
+		escreva("********************\n")
+		escreva("* 1.Criptografar   *\n")
+		escreva("********************\n")
+		escreva("* 2.Descriptografar*\n")
+		escreva("********************\n")
+		escreva("Escolha: ")
+		leia(opcao)
+		escolha(opcao)
+		{
+			caso '1': criptografar() pare
+			caso '2': descriptografar() pare
+			caso contrario: decisao() pare
+		}
+	}
+
+	//Criptografia inicio
+	funcao criptografar()
+	{
+		escreva("Escreva um texto para ser criptografado:")
+		leia(original)
+		original += "."
+		escreva("Qual a chave?")
+		leia(chave1)
+		limpa()
+		contagem_letras()
+
+	}
+	funcao contagem_letras()
+	{
+		letra = Texto.obter_caracter(original,numero_letra)
+		para(numero_letra = 0; letra != '.' ; numero_letra++)
+		{
+			letra = Texto.obter_caracter(original,numero_letra)
+			se(letra != '.')
+			{
+				leitor()
+				criptografado()
+			}
+		}
+	}
+	funcao leitor()
+	{
+		cadeia letraM = Tipos.caracter_para_cadeia(letra)
+		letraM = Texto.caixa_baixa(letraM)
+		letra = Tipos.cadeia_para_caracter(letraM)
+		escolha(letra)
+		{
+			
+			caso 'a' : cripto = 0 + chave1 pare
+			caso 'b' : cripto = 1 + chave1 pare
+			caso 'c' : cripto = 2 + chave1 pare
+			caso 'd' : cripto = 3 + chave1 pare
+			caso 'e' : cripto = 4 + chave1 pare
+			caso 'f' : cripto = 5 + chave1 pare
+			caso 'g' : cripto = 6 + chave1 pare
+			caso 'h' : cripto = 7 + chave1 pare
+			caso 'i' : cripto = 8 + chave1 pare
+			caso 'j' : cripto = 9 + chave1 pare
+			caso 'k' : cripto = 10 + chave1 pare
+			caso 'l' : cripto = 11 + chave1 pare
+			caso 'm' : cripto = 12 + chave1 pare
+			caso 'n' : cripto = 13 + chave1 pare
+			caso 'o' : cripto = 14 + chave1 pare
+			caso 'p' : cripto = 15 + chave1 pare
+			caso 'q' : cripto = 16 + chave1 pare
+			caso 'r' : cripto = 17 + chave1 pare
+			caso 's' : cripto = 18 + chave1 pare
+			caso 't' : cripto = 19 + chave1 pare
+			caso 'u' : cripto = 20 + chave1 pare
+			caso 'v' : cripto = 21 + chave1 pare
+			caso 'w' : cripto = 22 + chave1 pare
+			caso 'x' : cripto = 23 + chave1 pare
+			caso 'y' : cripto = 24 + chave1 pare
+			caso 'z' : cripto = 25 + chave1 pare
+			caso contrario: cripto = 1234567890 pare
+		}
+	}
+	funcao criptografado()
+	{
+		se(cripto != 1234567890)
+		{
+			cripto = cripto%26
+		}
+		escolha(cripto)
+		{
+			caso 0: letra = 'a' pare
+			caso 1: letra = 'b' pare
+			caso 2: letra = 'c' pare
+			caso 3: letra = 'd' pare
+			caso 4: letra = 'e' pare
+			caso 5: letra = 'f' pare
+			caso 6: letra = 'g' pare
+			caso 7: letra = 'h' pare
+			caso 8: letra = 'i' pare
+			caso 9: letra = 'j' pare
+			caso 10: letra = 'k' pare
+			caso 11: letra = 'l' pare
+			caso 12: letra = 'm' pare
+			caso 13: letra = 'n' pare
+			caso 14: letra = 'o' pare
+			caso 15: letra = 'p' pare
+			caso 16: letra = 'q' pare
+			caso 17: letra = 'r' pare
+			caso 18: letra = 's' pare
+			caso 19: letra = 't' pare
+			caso 20: letra = 'u' pare
+			caso 21: letra = 'v' pare
+			caso 22: letra = 'w' pare
+			caso 23: letra = 'x' pare
+			caso 24: letra = 'y' pare
+			caso 25: letra = 'z' pare
+			caso 1874919424: letra = ' ' pare
+			caso contrario: letra = Texto.obter_caracter(original,numero_letra) pare
+		}
+		escreva(letra)
+	}
+	//Criptografia fim
+
+	//Descriptografia inicio
+	funcao descriptografar()
+	{
+		escreva("Escreva um texto para ser descriptografado:")
+		leia(original)
+		original += "."
+		escreva("Qual a chave?Caso não souber digite 'n'")
+		leia(chavel)
+		limpa()
+		se(chavel == "n")
+		{
+			para(chave2 = 0; chave2 < 26; chave2++)
+			{
+				contagem_letras2()
+				escreva("\n")
+				numero_letra = 0
+			}
+		}
+		senao
+		{
+			chave2 =  Tipos.cadeia_para_inteiro(chavel, 10)
+		}
+	}
+	funcao contagem_letras2()
+	{
+		letra = Texto.obter_caracter(original,numero_letra)
+		para(numero_letra = 0; letra != '.' ; numero_letra++)
+		{
+			letra = Texto.obter_caracter(original,numero_letra)
+			se(letra != '.')
+			{
+				leitor2()
+				descriptografado()
+			}
+		}
+	}
+	funcao leitor2()
+	{
+		cadeia letraM = Tipos.caracter_para_cadeia(letra)
+		letraM = Texto.caixa_baixa(letraM)
+		letra = Tipos.cadeia_para_caracter(letraM)
+		escolha(letra)
+		{
+			
+			caso 'a' : cripto = 0 - chave2 pare
+			caso 'b' : cripto = 1 - chave2 pare
+			caso 'c' : cripto = 2 - chave2 pare
+			caso 'd' : cripto = 3 - chave2 pare
+			caso 'e' : cripto = 4 - chave2 pare
+			caso 'f' : cripto = 5 - chave2 pare
+			caso 'g' : cripto = 6 - chave2 pare
+			caso 'h' : cripto = 7 - chave2 pare
+			caso 'i' : cripto = 8 - chave2 pare
+			caso 'j' : cripto = 9 - chave2 pare
+			caso 'k' : cripto = 10 - chave2 pare
+			caso 'l' : cripto = 11 - chave2 pare
+			caso 'm' : cripto = 12 - chave2 pare
+			caso 'n' : cripto = 13 - chave2 pare
+			caso 'o' : cripto = 14 - chave2 pare
+			caso 'p' : cripto = 15 - chave2 pare
+			caso 'q' : cripto = 16 - chave2 pare
+			caso 'r' : cripto = 17 - chave2 pare
+			caso 's' : cripto = 18 - chave2 pare
+			caso 't' : cripto = 19 - chave2 pare
+			caso 'u' : cripto = 20 - chave2 pare
+			caso 'v' : cripto = 21 - chave2 pare
+			caso 'w' : cripto = 22 - chave2 pare
+			caso 'x' : cripto = 23 - chave2 pare
+			caso 'y' : cripto = 24 - chave2 pare
+			caso 'z' : cripto = 25 - chave2 pare
+			caso contrario: cripto = 1234567890 pare
+		}
+	}
+	funcao descriptografado()
+	{
+		se(cripto != 1234567890 )
+		{
+			se(cripto < 0)
+			{
+				enquanto(cripto < 0)
+				{
+					cripto +=26
+				}
+			}
+			cripto = cripto%26
+		}
+		escolha(cripto)
+		{
+			caso 0: letra = 'a' pare
+			caso 1: letra = 'b' pare
+			caso 2: letra = 'c' pare
+			caso 3: letra = 'd' pare
+			caso 4: letra = 'e' pare
+			caso 5: letra = 'f' pare
+			caso 6: letra = 'g' pare
+			caso 7: letra = 'h' pare
+			caso 8: letra = 'i' pare
+			caso 9: letra = 'j' pare
+			caso 10: letra = 'k' pare
+			caso 11: letra = 'l' pare
+			caso 12: letra = 'm' pare
+			caso 13: letra = 'n' pare
+			caso 14: letra = 'o' pare
+			caso 15: letra = 'p' pare
+			caso 16: letra = 'q' pare
+			caso 17: letra = 'r' pare
+			caso 18: letra = 's' pare
+			caso 19: letra = 't' pare
+			caso 20: letra = 'u' pare
+			caso 21: letra = 'v' pare
+			caso 22: letra = 'w' pare
+			caso 23: letra = 'x' pare
+			caso 24: letra = 'y' pare
+			caso 25: letra = 'z' pare
+			caso contrario: letra = Texto.obter_caracter(original,numero_letra) pare
+		}
+		escreva(letra)
+	}
+	//Descriptografia fim
+}
